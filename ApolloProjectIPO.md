@@ -1,5 +1,5 @@
 <h2 align="center"> IPO TABLE </h2>
-<table style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<table align="center">
   <thead align="center">
     <tr>
       <td><b> INPUT </b></td>
@@ -7,10 +7,15 @@
       <td><b> OUTPUT </b></td>
     </tr>
   </thead align="center">
-  <tbody>
+  <tbody align="center">
     <tr>
       <td> Get Website </td>
       <td> Browse Products </td>
       <td> Show Prices </td>
+    </tr>
+    <tr>
+      <td> 1 </td>
+      <td> 2 </td>
+      <td> 3 </td>
     </tr>
   </tbody>
