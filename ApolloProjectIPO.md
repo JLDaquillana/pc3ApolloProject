@@ -20,7 +20,7 @@
     </tr>
     <tr>
       <td>  </td>
-      <td> Search, Add, Remove, & Edit items in data file </td>
+      <td> Edit and update data file </td>
       <td>   </td>
     </tr>
     <tr>
