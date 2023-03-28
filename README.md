@@ -1,12 +1,12 @@
 <h1 align="center"> APOLLO PROJECT </h1>
 <p align="center"> <code> COMPROG LABORATORY PROJECT </code></p>
 
-<h3 align="center"> PRICE CHECKING SOFTWARE </h3>
+<h3 align="center"> PRODUCT MANAGEMENT SYSTEM </h3>
 <body>
 <p align="left"><b> PROJECT DESCRIPTION: </b></p>
 <p align="center">
 
-A price checker software is a tool that helps consumers to compare and  to keep track of the costs of various products and services across multiple e-commerce platforms, online markets, and websites. It can also be used as a tool of large business companies in keeping track of and evaluating the costs of goods and services provided by rival companies in certain markets and sectors.
+The product management system is a software designed specifically for managing product information, including storing and generating details. Staff can register as a system admin and have full access to maintain daily records. The system will be developed using the programming language 'C' with various variables and strings. It is user-friendly, with a simple design that is easy to navigate without errors or warnings.
 
 </p>
 </body>
