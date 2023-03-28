@@ -25,6 +25,11 @@
     </tr>
     <tr>
       <td>  </td>
+      <td> Add and Remove items in data file </td>
+      <td>  </td>
+    </tr>
+    <tr>
+      <td>  </td>
       <td> Exit System </td>
       <td>  </td>
     </tr>
