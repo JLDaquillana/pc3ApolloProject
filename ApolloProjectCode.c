@@ -8,7 +8,6 @@
 // HEADER FILES
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 // VARIABLES
 #define USERNAME "user"
