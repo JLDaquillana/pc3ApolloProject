@@ -68,6 +68,37 @@ int getinteger(int input)
     return input;
 }
 
+// DISPLAY
+// displays the list of items.
+void display() {
+    printf("Available Products:\n");
+    FILE *file;
+    int count = 0;
+    file = fopen("Inventory.txt", "rb");
+
+    if (file == NULL) {
+        printf("\tNo Product is inserted.\n");
+        void options();
+        return;
+    }
+
+    printf("+--------+-----------------+--------+----------+\n");
+    printf("|  CODE  |       NAME      | PRICE  | QUANTITY |\n");
+    printf("+--------+-----------------+--------+----------+\n");
+
+    while (fread(&item, sizeof(item), 1, file)) {
+        printf("| %8s | %17s | %8d | %10d |\n", item.product_code, item.product_name, item.price, item.quantity);
+        count++;
+    }
+
+    printf("+--------+-----------------+--------+----------+\n");
+
+    if (count == 0) {
+        printf("\n* Product is not available.\n");
+    }
+    fclose(file);
+}
+
 // ADD ITEMS
 // Creates a new item in the data file.
 void addItem()
@@ -133,6 +164,49 @@ void addItem()
     }
 }
 
+// SEARCH ITEMS
+// Searches items.
+void searchItem()
+{
+    FILE *file;
+    char code[20], product[20];
+    int available;
+
+    printf("Enter \"end\" for back to menu.\n");
+    printf("Enter the Product name to search: ");
+    scanf("%s", code);
+
+    if (code[0] == 'e' && code[1] == 'n' && code[2] == 'd' && code[3] == '\0') {
+        void options();
+    }
+
+    printf("Product information\n");
+    available = isProdNameAvail(code);
+    if (available == 0) {
+        printf("\nProduct name is not found.\n");
+        system("pause");
+    } else {
+        file = fopen("Inventory.txt", "rb");
+        while (fread(&item, sizeof(item), 1, file)) {
+            int i;
+            for (i = 0; i < 20; i++) {
+                product[i] = item.product_name[i];
+                if (code[i] != product[i])
+                    break;
+                if (code[i] == '\0')
+                    break;
+            }
+            if (i == 20 || product[i] == '\0') {
+                printf("\nProduct Code:         %s", item.product_code);
+                printf("\nName of Product:      %s", item.product_name);
+                printf("\nProduct Price(PHP): %d", item.price);
+                printf("\nProduct Quantity:     %d", item.quantity);
+            }
+        }
+        fclose(file);
+    }
+}
+
 // . . .
 void options();
 
@@ -195,10 +269,10 @@ void options()
     int num, choice;
     while (1)
     {
-        printf("\n 1. Insert");
-        printf("\n 2. Display");
+        printf("\n 1. Insert Items");
+        printf("\n 2. Display Display");
         printf("\n 3. Search Item");
-        printf("\n 4. Update");
+        printf("\n 4. Update Inventory");
         printf("\n 5. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
@@ -208,6 +282,12 @@ void options()
         {
         case 1:       
             addItem();
+            break;
+        case 2:
+            display();
+            break;
+        case 3:
+            searchItem();
             break;
         default:
             printf("Invalid choice.\n");
