@@ -58,6 +58,41 @@ int getinteger(int input) {
     return input;
 }
 
+// DISPLAY
+// displays the list of items.
+void display() {
+    printf("Available Products:\n");
+    FILE *file;
+    int count = 0;
+    file = fopen("Inventory.txt", "rb");
+
+    if (file == NULL) {
+        printf("\tNo Product is inserted.\n");
+        void options();
+        return;
+    }
+
+    while (fread(&item, sizeof(item), 1, file)) {
+        count++;
+    }
+
+    if (count > 0) {
+        rewind(file); // reset file pointer to beginning of file
+        printf("+--------+-----------------+--------+----------+\n");
+        printf("|  CODE  |       NAME      | PRICE  | QUANTITY |\n");
+        printf("+--------+-----------------+--------+----------+\n");
+
+        while (fread(&item, sizeof(item), 1, file)) {
+            printf("|%8s|%17s|%8d|%10d|\n", item.product_code, item.product_name, item.price, item.quantity);
+        }
+
+        printf("+--------+-----------------+--------+----------+\n");
+    } else {
+        printf("\nNo products listed. Please add products first.\n");
+    }
+    fclose(file);
+}
+
 // ADD ITEMS
 // Creates a new item in the data file.
 void addItem() {
@@ -119,6 +154,20 @@ void addItem() {
     }
 }
 
+// EXIT SOFTWARE
+void exitapp() {
+    char choice;
+    printf("\n Do you want to close the applications?(Y/n)");
+    scanf("%s", &choice);
+    if (choice == 'Y') {
+        exit(0);
+    } else (choice == 'n'); {
+        system("cls");
+        void options();
+    }
+}
+
+
 // . . .
 void options();
 
@@ -175,6 +224,10 @@ void options() {
 
         if (choice == 1) {
             addItem();
+        } else if (choice == 2) {
+            display();
+        } else if (choice == 4) {
+            exitapp();
         } else {
             printf("Invalid choice.\n");
         }
