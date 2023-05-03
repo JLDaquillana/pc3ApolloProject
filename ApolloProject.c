@@ -203,7 +203,8 @@ void update() {
 
         printf("Choose an option: \n");
         printf("1. Display Inventory\n");
-        printf("2. Go back to main interface.\n");
+        printf("2. Search for Product by Name\n");
+        printf("3. Go back to main interface.\n");
         scanf("%d", &option);
 
 
@@ -212,6 +213,10 @@ void update() {
             printf("\nEnter the Product code to update or delete from the Inventory: ");
             scanf("%s", code);
             available = isProdCodeAvail(code);
+        } else if (option == 2) {
+            printf("\nEnter the Product name to search: ");
+            scanf("%s", product);
+            available = isProdNameAvail(product);
         } else if (option == 3) {
             system("cls");
             return;
