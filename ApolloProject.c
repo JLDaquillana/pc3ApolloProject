@@ -119,7 +119,7 @@ void addItem() {
     FILE *file;
     char code[20];
     char x[4] = {0};
-    int i, a, code_length = 0;
+    int a, code_length = 0;
     file = fopen("Inventory.txt", "ab");
 
     printf("\nEnter \"end\" to exit.");
@@ -142,7 +142,7 @@ void addItem() {
         system("pause");
         system("cls");
         return;
-    } for (i = 0; i < code_length; i++) {
+    } for (int i = 0; i < code_length; i++) {
         item.product_code[i] = code[i];
     } item.product_code[code_length] = '\0';
 
@@ -203,8 +203,7 @@ void update() {
 
         printf("Choose an option: \n");
         printf("1. Display Inventory\n");
-        printf("2. Search for Product by Name\n");
-        printf("3. Go back to main interface.\n");
+        printf("2. Go back to main interface.\n");
         scanf("%d", &option);
 
 
@@ -214,10 +213,6 @@ void update() {
             scanf("%s", code);
             available = isProdCodeAvail(code);
         } else if (option == 2) {
-            printf("\nEnter the Product name to search: ");
-            scanf("%s", product);
-            available = isProdNameAvail(product);
-        } else if (option == 3) {
             system("cls");
             return;
         } else {
@@ -325,7 +320,6 @@ int main() {
     printf("\tLOGIN:\n");
     printf("************************\n");
     char username[15], password[10];
-    int i;
 
     while (1) {
         printf("Enter username: ");
@@ -336,12 +330,12 @@ int main() {
         int username_valid = 1;
         int password_valid = 1;
 
-        for (i = 0; username[i] != '\0' || USERNAME[i] != '\0'; i++) {
+        for (int i = 0; username[i] != '\0' || USERNAME[i] != '\0'; i++) {
             if (username[i] != USERNAME[i]) {
                 username_valid = 0;
                 break;
             }
-        } for (i = 0; password[i] != '\0' || PASSWORD[i] != '\0'; i++) {
+        } for (int i = 0; password[i] != '\0' || PASSWORD[i] != '\0'; i++) {
             if (password[i] != PASSWORD[i]) {
                 password_valid = 0;
                 break;
